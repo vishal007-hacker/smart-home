@@ -1,0 +1,22 @@
+(version 1)
+
+# High-voltage (mains) to low-voltage clearance.
+# Any net assigned to net class AC_HV must be at least 4mm from any net not in AC_HV.
+(rule "HV_to_LV_clearance"
+	(constraint clearance (min 4mm))
+	(condition "A.NetClass == 'AC_HV' && B.NetClass != 'AC_HV'"))
+
+# HV-to-HV minimum spacing (L to N, L to LOADx).
+(rule "HV_to_HV_clearance"
+	(constraint clearance (min 3mm))
+	(condition "A.NetClass == 'AC_HV' && B.NetClass == 'AC_HV'"))
+
+# HV traces must keep at least 2mm from board edge.
+(rule "HV_to_edge"
+	(constraint edge_clearance (min 2mm))
+	(condition "A.NetClass == 'AC_HV'"))
+
+# Minimum trace width for HV nets.
+(rule "HV_min_track_width"
+	(constraint track_width (min 2mm))
+	(condition "A.NetClass == 'AC_HV'"))

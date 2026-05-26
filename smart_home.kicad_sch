@@ -1,0 +1,23 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "a1b2c3d4-0000-0000-0000-000000000001")
+	(paper "A3")
+	(title_block
+		(title "Smart Home 4-Channel AC Relay Controller")
+		(date "2026-05-26")
+		(rev "0.1")
+		(company "Wisright")
+		(comment 1 "ESP32-WROOM-32E + HLK-PM01 + 4x SRD-05VDC relays")
+		(comment 2 "230VAC input, 4 switched AC load outputs, UART programming header")
+		(comment 3 "Manual override buttons + status LEDs per channel")
+		(comment 4 "")
+	)
+	(lib_symbols)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

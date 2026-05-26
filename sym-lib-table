@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "hlk_pm01")(type "KiCad")(uri "${KIPRJMOD}/lib/hlk_pm01.kicad_sym")(options "")(descr "HLK-PM01 AC-DC Module symbol"))
+)

@@ -1,0 +1,28 @@
+Reference,Qty,Value,Description,KiCad Symbol,KiCad Footprint,Manufacturer Part No,Notes
+U1,1,ESP32-WROOM-32E,WiFi+BT MCU module,RF_Module:ESP32-WROOM-32E,RF_Module:ESP32-WROOM-32,ESP32-WROOM-32E,4MB flash variant fine
+U2,1,ULN2003A,Darlington array driver,Driver_Motor:ULN2003A,Package_DIP:DIP-16_W7.62mm,ULN2003AN,DIP for hand-solder; use SOIC-16W if reflow
+U3,1,AMS1117-3.3,3.3V LDO regulator,Regulator_Linear:AMS1117-3.3,Package_TO_SOT_SMD:SOT-223-3_TabPin2,AMS1117-3.3,
+PS1,1,HLK-PM01,AC-DC isolated module 230V to 5V 0.6A,hlk_pm01:HLK-PM01,hlk_pm01:HLK-PM01,HLK-PM01,Custom lib included in project
+K1-K4,4,SRD-05VDC-SL-C,SPDT relay 10A 5V coil,Relay:SANYOU_SRD_Form_C,Relay_THT:Relay_SPDT_SANYOU_SRD_Series_Form_C,SRD-05VDC-SL-C,
+D1-D4,4,LED 3mm Green,Status LED relay state,Device:LED,LED_THT:LED_D3.0mm,,Any 3mm THT green LED
+D5,1,LED 3mm Red,Power indicator,Device:LED,LED_THT:LED_D3.0mm,,Any 3mm THT red LED
+R1-R4,4,1k 0805,LED current limit,Device:R,Resistor_SMD:R_0805_2012Metric,,
+R9,1,1k 0805,Power LED current limit,Device:R,Resistor_SMD:R_0805_2012Metric,,
+R5-R8,4,10k 0805,Button pull-up (optional ext.),Device:R,Resistor_SMD:R_0805_2012Metric,,Can omit if using ESP32 internal pull-ups
+R11,1,10k 0805,EN pull-up,Device:R,Resistor_SMD:R_0805_2012Metric,,
+R12,1,10k 0805,BOOT (GPIO0) pull-up,Device:R,Resistor_SMD:R_0805_2012Metric,,
+C1,1,100uF/16V,HLK output bulk cap,Device:C_Polarized,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,,Larger to absorb ESP32 WiFi bursts
+C2,1,10uF 0805,AMS1117 input,Device:C,Capacitor_SMD:C_0805_2012Metric,,
+C3,1,22uF 0805,AMS1117 output,Device:C,Capacitor_SMD:C_0805_2012Metric,,
+C4,1,10uF 0805,ESP32 bulk,Device:C,Capacitor_SMD:C_0805_2012Metric,,
+C5,1,100nF 0805,ESP32 decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,Place within 3mm of 3V3 pin
+C6,1,1uF 0805,EN RC delay,Device:C,Capacitor_SMD:C_0805_2012Metric,,
+C7,1,100nF 0805,ULN2003 decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,
+F1,1,T4A 5x20mm,Slow-blow mains fuse,Device:Fuse,Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Closed,,
+RV1,1,S07K275,Metal oxide varistor 275V,Device:Varistor,Varistor:RV_Disc_D9mm_W5mm_P5mm,S07K275,
+SW1-SW4,4,6mm tactile,Manual override buttons,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
+SW5,1,6mm tactile,BOOT button,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
+SW6,1,6mm tactile,RESET button,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
+J1,1,Screw terminal 3-pos 5.08mm,AC input L/N/PE,Connector_Generic:Conn_01x03,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-N-5.08_1x03_P5.08mm_Horizontal,,
+J2,1,Screw terminal 5-pos 5.08mm,Load outputs N/L1/L2/L3/L4,Connector_Generic:Conn_01x05,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-N-5.08_1x05_P5.08mm_Horizontal,,
+J3,1,Pin header 1x06 2.54mm,UART programming header,Connector_Generic:Conn_01x06,Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical,,Pinout: GND 3V3 TX RX EN IO0

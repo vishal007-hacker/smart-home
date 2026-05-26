@@ -1,0 +1,22 @@
+# KiCad auto-saves and backups
+*.bak
+*.bck
+*-backups/
+_autosave-*
+*.kicad_prl
+fp-info-cache
+
+# KiCad project local settings (per-user)
+*.kicad_pro-bak
+
+# Generated outputs
+gerbers/
+*.gbr
+*.drl
+*.gbrjob
+*.zip
+
+# Common OS files
+.DS_Store
+Thumbs.db
+desktop.ini
