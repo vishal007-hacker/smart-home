@@ -11,7 +11,8 @@ labels for the major nets described in the spec.
 Re-run this script whenever bom.csv changes; it overwrites smart_home.kicad_sch.
 """
 
-from __future__ import annotations
+from __future__ import 
+
 
 import csv
 import os
@@ -887,7 +888,7 @@ def main():
 \t\t(title "Smart Home 4-Channel AC Relay Controller")
 \t\t(date "2026-05-26")
 \t\t(rev "0.1")
-\t\t(company "Wisright")
+\t\t(company "WisRight Technologies Private Limited")
 \t\t(comment 1 "ESP32-WROOM-32E + HLK-PM01 + 4x SRD-05VDC relays")
 \t\t(comment 2 "230VAC input, 4 switched AC load outputs, UART programming header")
 \t\t(comment 3 "Manual override buttons + status LEDs per channel")

@@ -8,7 +8,7 @@
 		(title "Smart Home 4-Channel AC Relay Controller")
 		(date "2026-05-26")
 		(rev "0.1")
-		(company "Wisright")
+		(company "WisRight Technologies Private Limited")
 		(comment 1 "ESP32-WROOM-32E + HLK-PM01 + 4x SRD-05VDC relays")
 		(comment 2 "230VAC input, 4 switched AC load outputs, UART programming header")
 		(comment 3 "Manual override buttons + status LEDs per channel")

@@ -1,5 +1,7 @@
 # Smart Home 4-Channel AC Relay Controller
 
+**WisRight Technologies Private Limited**
+
 ESP32-based smart home controller for switching 4 independent 230V AC loads, with per-channel current and voltage sensing, manual override buttons, status LEDs, and an I²C LCD display.
 
 The project is a complete KiCad 9 design — schematic, PCB layout, BOM, custom symbol/footprint for the HLK-PM01 AC-DC module, custom DRC rules for mains clearance, and Python generator scripts that build everything from a single `bom.csv`.
@@ -32,7 +34,83 @@ The project is a complete KiCad 9 design — schematic, PCB layout, BOM, custom 
 | User interface | 4× 6mm tactile buttons + 4× green status LEDs + 1× red power LED + 4-pin I²C LCD header |
 | Programming | 6-pin UART header (GND, +3V3, TXD0, RXD0, EN, IO0) |
 
-Full bill of materials in [`bom.csv`](bom.csv) (~43 grouped rows, ~76 component instances).
+Full bill of materials in [`bom.csv`](bom.csv) — 43 grouped rows, 76 component instances.
+
+## Detailed components list
+
+### Active devices
+
+| Ref | Qty | Part | Package | Description |
+|---|---|---|---|---|
+| **U1** | 1 | ESP32-WROOM-32E | Module 18×25.5mm | Espressif WiFi+BT MCU, 240MHz dual-core, 4MB flash, integrated PCB antenna |
+| **U2** | 1 | ULN2003A | DIP-16 | Texas Instruments 7-channel Darlington array (500mA per channel, up to 50V), drives relay coils |
+| **U3** | 1 | AMS1117-3.3 | SOT-223-3 | Advanced Monolithic Systems 3.3V LDO regulator, 1A capacity, drops 5V→3.3V for ESP32 |
+| **PS1** | 1 | HLK-PM01 | THT 34.2×20.2mm | Hi-Link AC-DC isolated SMPS module, 230VAC→5VDC @ 600mA, 2.1 kV isolation, 3W |
+| **U4-U7** | 4 | ACS712ELCTR-05B | SOIC-8 | Allegro Hall-effect current sensor, ±5A range, 185 mV/A sensitivity, 2.1 kVrms isolation between IP± and signal pins |
+| **U8** | 1 | ADS1115IDGSR | TSSOP-10 | Texas Instruments 16-bit Σ-Δ ADC, 4 single-ended channels, I²C interface, 860 SPS, PGA ±0.256V to ±6.144V (default address 0x48 with ADDR=GND) |
+| **K1-K4** | 4 | SRD-05VDC-SL-C | THT | Sanyou SPDT relay, 5V coil ~70mA, contacts rated 10A @ 250VAC / 30VDC |
+
+### Discrete components
+
+| Ref | Qty | Value | Package | Use |
+|---|---|---|---|---|
+| **R1-R4** | 4 | 1 kΩ | 0805 SMD | Status LED current limit (D1-D4) |
+| **R9** | 1 | 1 kΩ | 0805 SMD | Power LED current limit (D5) |
+| **R5-R8** | 4 | 10 kΩ | 0805 SMD | Manual button pull-ups to +3V3 (SW1-SW4) |
+| **R11** | 1 | 10 kΩ | 0805 SMD | ESP32 EN pin pull-up to +3V3 |
+| **R12** | 1 | 10 kΩ | 0805 SMD | ESP32 BOOT (GPIO0) pull-up to +3V3 |
+| **R13** | 1 | 4.7 kΩ | 0805 SMD | I²C SDA pull-up to +3V3 |
+| **R14** | 1 | 4.7 kΩ | 0805 SMD | I²C SCL pull-up to +3V3 |
+| **R15-R18** | 4 | 10 kΩ | 0805 SMD | ACS712 output divider (top) — scales 0-5V to 0-3.21V for ESP32 ADC |
+| **R19-R22** | 4 | 18 kΩ | 0805 SMD | ACS712 output divider (bottom) |
+| **C1** | 1 | 100 µF / 16V | Radial THT 6.3mm | HLK-PM01 +5V output bulk capacitor (absorbs ESP32 WiFi transient bursts) |
+| **C2** | 1 | 10 µF | 0805 SMD | AMS1117 input cap |
+| **C3** | 1 | 22 µF | 0805 SMD | AMS1117 output cap (recommended ≥22µF tantalum/ceramic for AMS1117 stability) |
+| **C4** | 1 | 10 µF | 0805 SMD | ESP32 +3V3 bulk |
+| **C5** | 1 | 100 nF | 0805 SMD | ESP32 3V3 decoupling (place within 3mm of module pin 2) |
+| **C6** | 1 | 1 µF | 0805 SMD | EN pin RC delay (forms ~10ms power-up delay with R11=10k) |
+| **C7** | 1 | 100 nF | 0805 SMD | ULN2003A VCC decoupling |
+| **C8-C11** | 4 | 100 nF | 0805 SMD | ACS712 VCC decoupling (one per ACS712) |
+| **C16** | 1 | 100 nF | 0805 SMD | ADS1115 VDD decoupling |
+| **D1-D4** | 4 | LED 3mm green | THT | Per-channel relay status indicator |
+| **D5** | 1 | LED 3mm red | THT | Power-on indicator (always on while +5V present) |
+| **F1-F4** | 4 | T4A 5×20 mm | THT Schurter 0031.8201 holder | Slow-blow mains fuse, one per AC input channel |
+| **RV1** | 1 | S07K275 | Disc D9mm | EPCOS metal oxide varistor, 275 VAC clamping, surge protection across L1/N1 |
+
+### Switches
+
+| Ref | Qty | Type | Use |
+|---|---|---|---|
+| **SW1-SW4** | 4 | 6mm tactile THT | Manual override buttons (one per channel) — momentary press toggles the relay |
+| **SW5** | 1 | 6mm tactile THT | BOOT button — hold during reset to enter ESP32 download mode |
+| **SW6** | 1 | 6mm tactile THT | RESET button — pulls ESP32 EN low |
+
+### Connectors
+
+| Ref | Qty | Type | Use |
+|---|---|---|---|
+| **J1A, J1B, J1C, J1D** | 4 | Phoenix MKDS-1.5 3-pos screw terminal, 5.08mm pitch | AC input per channel: L (Live), N (Neutral), PE (Protective Earth) |
+| **J2A, J2B, J2C, J2D** | 4 | Phoenix MKDS-1.5 2-pos screw terminal, 5.08mm pitch | AC switched output per channel: L_out, N_passthrough |
+| **J3** | 1 | 1×6 pin header, 2.54mm pitch | UART programming: GND, +3V3, TXD0, RXD0, EN, IO0 |
+| **J4** | 1 | 1×4 pin header, 2.54mm pitch | External 16×2 LCD via PCF8574 I²C backpack: GND, +5V, SDA, SCL |
+| **J5, J6, J7, J8** | 4 | 1×3 pin header, 2.54mm pitch | External ZMPT101B voltage sensor per channel: GND, +3V3, VOUT |
+
+### External modules (not on PCB — user-supplied)
+
+| Module | Quantity | Purpose | Connection |
+|---|---|---|---|
+| 16×2 LCD with PCF8574 I²C backpack | 1 | Display | 4-wire to J4 (I²C address typically 0x27 or 0x3F) |
+| ZMPT101B AC voltage transformer module | 4 | Per-channel voltage measurement | AC side wires to J1A/B/C/D L+N; DC side 3-wire to J5/J6/J7/J8 |
+| USB-to-Serial adapter (CP2102, CH340, FT232) | 1 | Firmware upload | 4–6 wire to J3 (only used during flashing) |
+
+### Custom library parts (included in repo)
+
+| Part | Files | Source |
+|---|---|---|
+| **HLK-PM01 symbol** | [`lib/hlk_pm01.kicad_sym`](lib/hlk_pm01.kicad_sym) | Custom — drawn from datasheet |
+| **HLK-PM01 footprint** | [`hlk_pm01.pretty/HLK-PM01.kicad_mod`](hlk_pm01.pretty/HLK-PM01.kicad_mod) | Custom — drawn from datasheet (34.2 × 20.2 × 15 mm body, 4-pin THT) |
+
+All other symbols and footprints are pulled from KiCad 9's standard libraries.
 
 ## Board
 
@@ -163,4 +241,14 @@ This is a hobby project. The author assumes no liability for damage, injury, or 
 
 ## License
 
-MIT — see commit history.
+MIT License.
+
+Copyright © 2026 **WisRight Technologies Private Limited**.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this hardware design and associated documentation files, to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the design, subject to the standard MIT terms — provided as-is, without warranty of any kind, especially regarding electrical safety. See [LICENSE](LICENSE) for the full text.
+
+## Maintainer
+
+Designed and maintained by **WisRight Technologies Private Limited**.
+
+For commercial inquiries, custom variants (different relay ratings, board sizes, sensor configurations, or firmware integration), please open an issue on this repository.
