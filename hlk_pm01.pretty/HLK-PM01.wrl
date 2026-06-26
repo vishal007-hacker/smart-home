@@ -1,0 +1,54 @@
+#VRML V2.0 utf8
+# Simple 3D model for Hi-Link HLK-PM01 AC-DC module
+# Dimensions: 34.2 x 20.2 x 15 mm (per datasheet)
+# Body: matte black plastic casing
+# Center of body geometry is at origin; positioned via (model offset) in HLK-PM01.kicad_mod
+
+Transform {
+  children [
+    # Main body (black plastic enclosure)
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.12 0.12 0.12
+          ambientIntensity 0.25
+          specularColor 0.25 0.25 0.25
+          shininess 0.30
+        }
+      }
+      geometry Box { size 34.2 20.2 15.0 }
+    }
+    # Top label area — slightly raised lighter strip
+    Transform {
+      translation 0 0 7.55
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.22 0.22 0.22
+              ambientIntensity 0.3
+              specularColor 0.3 0.3 0.3
+              shininess 0.25
+            }
+          }
+          geometry Box { size 30.0 16.0 0.1 }
+        }
+      ]
+    }
+    # White "HLK-PM01" label-like rectangle
+    Transform {
+      translation 0 0 7.62
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.9 0.9 0.9
+              emissiveColor 0.1 0.1 0.1
+            }
+          }
+          geometry Box { size 18.0 6.0 0.05 }
+        }
+      ]
+    }
+  ]
+}

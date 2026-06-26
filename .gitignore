@@ -19,9 +19,10 @@ freerouting.dsn
 # 3D and DRC outputs (regenerable; keep fabrication/ outputs though)
 /board.step
 *.stl
-*.wrl
 drc.json
 erc.json
+# Note: *.wrl files in *.pretty/ directories ARE part of the design (3D models for footprints)
+# so they are NOT ignored.
 
 # Common OS files
 .DS_Store
