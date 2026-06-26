@@ -8203,6 +8203,17 @@
 			(net 16 "GND")
 			(uuid "d00e9e9e-c14c-4f1b-b9d3-97b8488cc462")
 		)
+		(model "${KIPRJMOD}/hlk_pm01.pretty/HLK-PM01.wrl"
+			(offset
+				(xyz 13.75 -5.1 7.5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 		(embedded_fonts no)
 	)
 	(footprint "Button_Switch_THT:SW_PUSH_6mm"
