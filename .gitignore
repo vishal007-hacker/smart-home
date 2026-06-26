@@ -5,18 +5,34 @@
 _autosave-*
 *.kicad_prl
 fp-info-cache
+~*.lck
 
 # KiCad project local settings (per-user)
 *.kicad_pro-bak
 
-# Generated outputs
-gerbers/
-*.gbr
-*.drl
-*.gbrjob
-*.zip
+# Specctra / autorouter intermediate files (regenerable)
+*.dsn
+*.ses
+temp-freerouting.dsn
+freerouting.dsn
+
+# 3D and DRC outputs (regenerable; keep fabrication/ outputs though)
+/board.step
+*.stl
+*.wrl
+drc.json
+erc.json
 
 # Common OS files
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Portable toolchain (do not commit ~100MB JRE / Freerouting jar)
+tools/
+
+# Claude Code session artifacts
+.claude/worktrees/
+
+# Logs
+logs/

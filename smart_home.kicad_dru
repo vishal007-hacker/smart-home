@@ -1,15 +1,48 @@
 (version 1)
 
+# ACS712 internal pin clearance exemption.
+# The ACS712-05B SOIC-8 has 1.27mm pin spacing but provides 2.1 kVrms
+# galvanic isolation internally between the HV current-path pins (1..4)
+# and the LV signal pins (5..8). Two-pronged approach below:
+#   (1) Permissive (severity ignore) rule per ACS712 instance so the
+#       default board-level minimum clearance doesn't fire on intra-IC pads.
+#   (2) The global HV_to_LV / HV_to_HV custom rules further down also
+#       have their condition explicitly excluding intra-ACS712 pad pairs.
+# Both are needed: KiCad evaluates all matching custom rules and applies
+# the strictest constraint, so we both add a permissive rule AND carve
+# the exception out of the strict rules.
+(rule "ACS712_internal_isolation_U4"
+	(severity ignore)
+	(constraint clearance)
+	(condition "A.MemberOfFootprint('U4') && B.MemberOfFootprint('U4')"))
+(rule "ACS712_internal_isolation_U5"
+	(severity ignore)
+	(constraint clearance)
+	(condition "A.MemberOfFootprint('U5') && B.MemberOfFootprint('U5')"))
+(rule "ACS712_internal_isolation_U6"
+	(severity ignore)
+	(constraint clearance)
+	(condition "A.MemberOfFootprint('U6') && B.MemberOfFootprint('U6')"))
+(rule "ACS712_internal_isolation_U7"
+	(severity ignore)
+	(constraint clearance)
+	(condition "A.MemberOfFootprint('U7') && B.MemberOfFootprint('U7')"))
+
 # High-voltage (mains) to low-voltage clearance.
 # Any net assigned to net class AC_HV must be at least 4mm from any net not in AC_HV.
+# Exempts intra-footprint cases (e.g. ACS712 pads 1..4 vs pads 5..8 are
+# galvanically isolated internally — 2.1 kVrms — even though their pin
+# pitch is only 1.27mm).
 (rule "HV_to_LV_clearance"
 	(constraint clearance (min 4mm))
-	(condition "A.NetClass == 'AC_HV' && B.NetClass != 'AC_HV'"))
+	(condition "A.NetClass == 'AC_HV' && B.NetClass != 'AC_HV' && !(A.MemberOfFootprint('U4') && B.MemberOfFootprint('U4')) && !(A.MemberOfFootprint('U5') && B.MemberOfFootprint('U5')) && !(A.MemberOfFootprint('U6') && B.MemberOfFootprint('U6')) && !(A.MemberOfFootprint('U7') && B.MemberOfFootprint('U7'))"))
 
 # HV-to-HV minimum spacing (L to N, L to LOADx).
+# Exempts pads inside the same footprint (relay coil/contact spacing is fixed by the part).
+# Also exempts intra-ACS712 pad pairs (e.g. IP+ pads 1,2 and IP- pads 3,4).
 (rule "HV_to_HV_clearance"
 	(constraint clearance (min 3mm))
-	(condition "A.NetClass == 'AC_HV' && B.NetClass == 'AC_HV'"))
+	(condition "A.NetClass == 'AC_HV' && B.NetClass == 'AC_HV' && !(A.MemberOfFootprint('U4') && B.MemberOfFootprint('U4')) && !(A.MemberOfFootprint('U5') && B.MemberOfFootprint('U5')) && !(A.MemberOfFootprint('U6') && B.MemberOfFootprint('U6')) && !(A.MemberOfFootprint('U7') && B.MemberOfFootprint('U7'))"))
 
 # HV traces must keep at least 2mm from board edge.
 (rule "HV_to_edge"

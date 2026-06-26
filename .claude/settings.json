@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tasklist)",
+      "Bash(tasklist *)",
+      "Bash(ipconfig)",
+      "Bash(ipconfig *)",
+      "Bash(pm2 logs *)",
+      "Bash(pip show *)",
+      "Bash(grep -B1 -A3 '\\(pad \"' \"C:/Program Files/KiCad/9.0/share/kicad/footprints/Resistor_SMD.pretty/R_0805_2012Metric.kicad_mod\" | head -10)",
+      "Read(//c/Program Files/KiCad/9.0/share/kicad/footprints/Resistor_SMD.pretty/**)"
+    ]
+  }
+}
