@@ -87,7 +87,7 @@
 	)
 	(model "${KIPRJMOD}/hlk_pm01.pretty/HLK-PM01.wrl"
 		(offset (xyz 13.75 -5.1 7.5))
-		(scale (xyz 1 1 1))
+		(scale (xyz 0.3937 0.3937 0.3937))
 		(rotate (xyz 0 0 0))
 	)
 )
