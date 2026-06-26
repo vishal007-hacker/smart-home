@@ -11,9 +11,6 @@ labels for the major nets described in the spec.
 Re-run this script whenever bom.csv changes; it overwrites smart_home.kicad_sch.
 """
 
-from __future__ import 
-
-
 import csv
 import os
 import re
@@ -53,12 +50,19 @@ def load_bom():
     for r in rows[1:]:
         if not r or not r[0].strip():
             continue
+        # Skip comment rows (Reference starts with '#')
+        if r[0].lstrip().startswith("#"):
+            continue
         if len(r) > len(header):
             # The footprint field (idx 5) contains a comma. Glue idx 5 + 6 back.
             excess = len(r) - len(header)
             fp = ",".join(r[5 : 5 + 1 + excess])
             r = r[:5] + [fp] + r[5 + 1 + excess :]
-        out.append(dict(zip(header, r)))
+        row = dict(zip(header, r))
+        # Skip external modules — they have no KiCad symbol (not placed on PCB)
+        if not row.get("KiCad Symbol", "").strip():
+            continue
+        out.append(row)
     return out
 
 

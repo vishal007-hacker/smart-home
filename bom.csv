@@ -1,44 +1,48 @@
 Reference,Qty,Value,Description,KiCad Symbol,KiCad Footprint,Manufacturer Part No,Notes
-U1,1,ESP32-WROOM-32E,WiFi+BT MCU module,RF_Module:ESP32-WROOM-32E,RF_Module:ESP32-WROOM-32,ESP32-WROOM-32E,4MB flash variant fine
-U2,1,ULN2003A,Darlington array driver,Driver_Motor:ULN2003A,Package_DIP:DIP-16_W7.62mm,ULN2003AN,DIP for hand-solder; use SOIC-16W if reflow
-U3,1,AMS1117-3.3,3.3V LDO regulator,Regulator_Linear:AMS1117-3.3,Package_TO_SOT_SMD:SOT-223-3_TabPin2,AMS1117-3.3,
-PS1,1,HLK-PM01,AC-DC isolated module 230V to 5V 0.6A,hlk_pm01:HLK-PM01,hlk_pm01:HLK-PM01,HLK-PM01,Custom lib included in project
-K1-K4,4,SRD-05VDC-SL-C,SPDT relay 10A 5V coil,Relay:SANYOU_SRD_Form_C,Relay_THT:Relay_SPDT_SANYOU_SRD_Series_Form_C,SRD-05VDC-SL-C,
-D1-D4,4,LED 3mm Green,Status LED relay state,Device:LED,LED_THT:LED_D3.0mm,,Any 3mm THT green LED
-D5,1,LED 3mm Red,Power indicator,Device:LED,LED_THT:LED_D3.0mm,,Any 3mm THT red LED
-R1-R4,4,1k 0805,LED current limit,Device:R,Resistor_SMD:R_0805_2012Metric,,
-R9,1,1k 0805,Power LED current limit,Device:R,Resistor_SMD:R_0805_2012Metric,,
-R5-R8,4,10k 0805,Button pull-up (optional ext.),Device:R,Resistor_SMD:R_0805_2012Metric,,Can omit if using ESP32 internal pull-ups
-R11,1,10k 0805,EN pull-up,Device:R,Resistor_SMD:R_0805_2012Metric,,
-R12,1,10k 0805,BOOT (GPIO0) pull-up,Device:R,Resistor_SMD:R_0805_2012Metric,,
-C1,1,100uF/16V,HLK output bulk cap,Device:C_Polarized,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,,Larger to absorb ESP32 WiFi bursts
-C2,1,10uF 0805,AMS1117 input,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-C3,1,22uF 0805,AMS1117 output,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-C4,1,10uF 0805,ESP32 bulk,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-C5,1,100nF 0805,ESP32 decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,Place within 3mm of 3V3 pin
-C6,1,1uF 0805,EN RC delay,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-C7,1,100nF 0805,ULN2003 decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-F1-F4,4,T4A 5x20mm,Slow-blow mains fuse (one per channel),Device:Fuse,Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open,,
-RV1,1,S07K275,Metal oxide varistor 275V (across L1-N1),Device:Varistor,Varistor:RV_Disc_D9mm_W5.2mm_P5mm,S07K275,
-SW1-SW4,4,6mm tactile,Manual override buttons,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
-SW5,1,6mm tactile,BOOT button,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
-SW6,1,6mm tactile,RESET button,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,,
-J1A,1,Screw terminal 3-pos 5.08mm,AC input 1 L/N/PE,Connector_Generic:Conn_01x03,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal,,
-J1B,1,Screw terminal 3-pos 5.08mm,AC input 2 L/N/PE,Connector_Generic:Conn_01x03,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal,,
-J1C,1,Screw terminal 3-pos 5.08mm,AC input 3 L/N/PE,Connector_Generic:Conn_01x03,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal,,
-J1D,1,Screw terminal 3-pos 5.08mm,AC input 4 L/N/PE,Connector_Generic:Conn_01x03,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal,,
-J2A,1,Screw terminal 2-pos 5.08mm,Load output 1 L/N,Connector_Generic:Conn_01x02,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal,,
-J2B,1,Screw terminal 2-pos 5.08mm,Load output 2 L/N,Connector_Generic:Conn_01x02,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal,,
-J2C,1,Screw terminal 2-pos 5.08mm,Load output 3 L/N,Connector_Generic:Conn_01x02,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal,,
-J2D,1,Screw terminal 2-pos 5.08mm,Load output 4 L/N,Connector_Generic:Conn_01x02,TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal,,
-J3,1,Pin header 1x06 2.54mm,UART programming header,Connector_Generic:Conn_01x06,Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical,,Pinout: GND 3V3 TX RX EN IO0
-J4,1,Pin header 1x04 2.54mm,LCD I2C connector (GND/+5V/SDA/SCL),Connector_Generic:Conn_01x04,Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical,,External 16x2 LCD via PCF8574 I2C backpack
-R13,1,4.7k 0805,SDA pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,,I2C pull-up for LCD
-R14,1,4.7k 0805,SCL pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,,I2C pull-up for LCD
-U4-U7,4,ACS712-05B,Hall-effect AC current sensor ±5A,Sensor_Current:ACS712xLCTR-05B,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,ACS712ELCTR-05B-T,5V supply; LV/HV isolation 2.1kVrms
-C8-C11,4,100nF 0805,ACS712 VCC decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-R15-R18,4,10k 0805,ADC divider top,Device:R,Resistor_SMD:R_0805_2012Metric,,
-R19-R22,4,18k 0805,ADC divider bottom,Device:R,Resistor_SMD:R_0805_2012Metric,,
-U8,1,ADS1115,16-bit 4-ch I2C ADC,Analog_ADC:ADS1115IDGS,Package_SO:TSSOP-10_3x3mm_P0.5mm,ADS1115IDGSR,Address 0x48 (ADDR=GND); shares I2C bus with LCD
-C16,1,100nF 0805,ADS1115 VDD decoupling,Device:C,Capacitor_SMD:C_0805_2012Metric,,
-J5-J8,4,Pin header 1x03 2.54mm,External ZMPT101B voltage sensor connection,Connector_Generic:Conn_01x03,Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,,Pinout: GND/+3V3/VOUT — wire to ZMPT101B module externally
+U1,1,ESP32-WROOM-32E,WiFi+BT MCU module 240MHz dual-core 4MB flash,RF_Module:ESP32-WROOM-32E,RF_Module:ESP32-WROOM-32,ESP32-WROOM-32E-N4,Espressif. Keep antenna keep-out area clear of copper. 4MB flash is sufficient.
+U2,1,ULN2003A,7-channel Darlington driver array for relay coils,Driver_Motor:ULN2003A,Package_DIP:DIP-16_W7.62mm,ULN2003AN,Texas Instruments / STMicroelectronics. DIP-16 for hand soldering; switch to SOIC-16W if reflow assembly.
+U3,1,AMS1117-3.3,3.3V LDO linear regulator 1A,Regulator_Linear:AMS1117-3.3,Package_TO_SOT_SMD:SOT-223-3_TabPin2,AMS1117-3.3,Advanced Monolithic Systems. Needs >=22uF output cap for stability. SOT-223 tab is GND.
+PS1,1,HLK-PM01,Isolated AC-DC SMPS 230VAC to 5VDC 600mA 2.1kV iso,hlk_pm01:HLK-PM01,hlk_pm01:HLK-PM01,HLK-PM01,Hi-Link. Custom KiCad symbol+footprint+3D model included in repo. 34.2x20.2x15mm THT.
+K1-K4,4,SRD-05VDC-SL-C,SPDT relay 10A@250VAC 5V coil ~70mA,Relay:SANYOU_SRD_Form_C,Relay_THT:Relay_SPDT_SANYOU_SRD_Series_Form_C,SRD-05VDC-SL-C,Sanyou. One per channel. ULN2003 sink current is ~70mA at 5V coil supply.
+U4-U7,4,ACS712-05B,Hall-effect AC current sensor +/-5A 185mV/A,Sensor_Current:ACS712xLCTR-05B,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,ACS712ELCTR-05B-T,Allegro Microsystems. One per channel. 2.1kVrms isolation IP+/- to signal pins. Load current MUST route through pins 1-4 (IP+) to pins 3-4 (IP-).
+U8,1,ADS1115,4-channel 16-bit I2C ADC PGA 860SPS,Analog_ADC:ADS1115IDGS,Package_SO:TSSOP-10_3x3mm_P0.5mm,ADS1115IDGSR,Texas Instruments. I2C address 0x48 with ADDR=GND. Reads voltage from 4x external ZMPT101B modules via J5-J8. Shares I2C bus with LCD.
+D1-D4,4,LED 3mm Green,Per-channel relay status indicator,Device:LED,LED_THT:LED_D3.0mm,LTL-4231N,Lite-On or any 3mm THT green LED. Vf ~2.2V at 5mA.
+D5,1,LED 3mm Red,Power-on indicator (always on with +5V),Device:LED,LED_THT:LED_D3.0mm,LTL-4221N,Lite-On or any 3mm THT red LED. Vf ~2.0V at 5mA.
+R1-R4,4,1k 0805,Status LED current limit for D1-D4,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-071KL,Yageo or any. Sets LED current ~3mA at 5V drive.
+R9,1,1k 0805,Power LED current limit for D5,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-071KL,Same as R1-R4.
+R5-R8,4,10k 0805,Manual button pull-up to +3V3 for SW1-SW4,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-0710KL,Yageo. Can be omitted if firmware enables ESP32 internal pull-ups.
+R11,1,10k 0805,ESP32 EN pin pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-0710KL,Required. Forms RC delay with C6 for clean power-up sequence.
+R12,1,10k 0805,ESP32 BOOT (GPIO0) pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-0710KL,Required. SW5 pulls IO0 low for download mode.
+R13,1,4.7k 0805,I2C SDA pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-074K7L,Required for I2C bus reliability with multiple devices (LCD + ADS1115).
+R14,1,4.7k 0805,I2C SCL pull-up to +3V3,Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-074K7L,Same as R13.
+R15-R18,4,10k 0805,ACS712 ADC divider top (Vout -> ADC node),Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-0710KL,One per ACS712. Divider ratio = 18/(10+18) = 0.643 scales 0-5V to 0-3.21V for ESP32 ADC.
+R19-R22,4,18k 0805,ACS712 ADC divider bottom (ADC node -> GND),Device:R,Resistor_SMD:R_0805_2012Metric,RC0805FR-0718KL,One per ACS712. See R15-R18 note.
+C1,1,100uF 16V,HLK-PM01 +5V output bulk capacitor,Device:C_Polarized,Capacitor_THT:CP_Radial_D6.3mm_P2.50mm,UVR1C101MED1TD,Nichicon or equivalent radial electrolytic. Absorbs ESP32 WiFi TX current bursts.
+C2,1,10uF 0805,AMS1117 input bulk capacitor,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21A106KOQNNNE,Samsung X5R or X7R MLCC.
+C3,1,22uF 0805,AMS1117 output bulk capacitor,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21A226MQQNNNE,Samsung X5R. AMS1117 requires >=22uF tantalum or ceramic for stability.
+C4,1,10uF 0805,ESP32 +3V3 bulk capacitor,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21A106KOQNNNE,X5R MLCC.
+C5,1,100nF 0805,ESP32 +3V3 decoupling cap,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21B104KBCNNNC,X7R MLCC. Place within 3mm of ESP32 module pin 2 (3V3).
+C6,1,1uF 0805,EN pin RC delay capacitor,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21B105KAFNNNE,X7R MLCC. With R11=10k forms 10ms RC delay on power-up.
+C7,1,100nF 0805,ULN2003A VCC decoupling cap,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21B104KBCNNNC,X7R MLCC.
+C8-C11,4,100nF 0805,ACS712 VCC decoupling cap (one per IC),Device:C,Capacitor_SMD:C_0805_2012Metric,CL21B104KBCNNNC,X7R MLCC. Place within 3mm of ACS712 pin 8.
+C16,1,100nF 0805,ADS1115 VDD decoupling cap,Device:C,Capacitor_SMD:C_0805_2012Metric,CL21B104KBCNNNC,X7R MLCC.
+F1-F4,4,T4A 5x20mm,Slow-blow mains fuse (one per channel),Device:Fuse,Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open,0034.3122,Schurter 0034.3122 (T4AH 250V) + 0031.8201 holder. Rated 4A; matches relay 10A spec with safety margin.
+RV1,1,S07K275,Metal oxide varistor 275VAC clamping (L1/N1),Device:Varistor,Varistor:RV_Disc_D9mm_W5.2mm_P5mm,S07K275,EPCOS / TDK. Surge protection across input 1 only (where logic supply taps). 270V continuous max.
+SW1-SW4,4,6mm tactile THT,Manual override buttons (one per channel),Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,TS-1102-G,Any 6mm tactile through-hole switch. Momentary action.
+SW5,1,6mm tactile THT,BOOT button - hold during reset for download mode,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,TS-1102-G,Same as SW1-SW4. Pulls GPIO0 to GND.
+SW6,1,6mm tactile THT,RESET button - pulls EN low,Switch:SW_Push,Button_Switch_THT:SW_PUSH_6mm,TS-1102-G,Same as SW1-SW4. Pulls EN to GND.
+J1A,1,Screw terminal 3-pos,AC input ch1 - L1/N1/PE,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal",1715022,Phoenix Contact MKDS-1.5/3-5.08. Rated 16A 400VAC. Use 1.5mm^2 wire.
+J1B,1,Screw terminal 3-pos,AC input ch2 - L2/N2/PE,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal",1715022,Same as J1A.
+J1C,1,Screw terminal 3-pos,AC input ch3 - L3/N3/PE,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal",1715022,Same as J1A.
+J1D,1,Screw terminal 3-pos,AC input ch4 - L4/N4/PE,Connector_Generic:Conn_01x03,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-3-5.08_1x03_P5.08mm_Horizontal",1715022,Same as J1A.
+J2A,1,Screw terminal 2-pos,Load output ch1 - L1_OUT/N1,Connector_Generic:Conn_01x02,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",1715019,Phoenix Contact MKDS-1.5/2-5.08. Rated 16A 400VAC.
+J2B,1,Screw terminal 2-pos,Load output ch2 - L2_OUT/N2,Connector_Generic:Conn_01x02,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",1715019,Same as J2A.
+J2C,1,Screw terminal 2-pos,Load output ch3 - L3_OUT/N3,Connector_Generic:Conn_01x02,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",1715019,Same as J2A.
+J2D,1,Screw terminal 2-pos,Load output ch4 - L4_OUT/N4,Connector_Generic:Conn_01x02,"TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",1715019,Same as J2A.
+J3,1,Pin header 1x06 2.54mm,UART programming header,Connector_Generic:Conn_01x06,Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical,M20-9990645,Harwin or any 6-pin 0.1in vertical header. Pinout: GND / +3V3 / TXD0 / RXD0 / EN / IO0.
+J4,1,Pin header 1x04 2.54mm,External 16x2 LCD I2C connector,Connector_Generic:Conn_01x04,Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical,M20-9990445,4-pin 0.1in vertical header. Pinout: GND / +5V / SDA / SCL. Connects to a PCF8574-backpack LCD (I2C 0x27 or 0x3F).
+J5-J8,4,Pin header 1x03 2.54mm,External ZMPT101B voltage sensor connection,Connector_Generic:Conn_01x03,Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,M20-9990345,3-pin 0.1in vertical header. Pinout: GND / +3V3 / VOUT. One per channel. Wire to external ZMPT101B module's DC pins.
+#EXTERNAL,,,Modules NOT on the PCB - buy these separately,,,,User-supplied. Wire to the headers above.
+LCD1,1,16x2 LCD with PCF8574 I2C backpack,16-char x 2-line HD44780 LCD + PCF8574 I2C expander,,External module,1602A + PCF8574T,Generic. Default I2C address 0x27 (some 0x3F). Connect 4 wires to J4: GND/+5V/SDA/SCL.
+VS1-VS4,4,ZMPT101B,AC voltage transformer sensor module 0-250VAC,,External module,ZMPT101B,Generic module with on-board op-amp + trimmer pot. AC side: wire to J1A-D L/N. DC side: 3 wires to J5-J8 (GND/+3V3/OUT). Calibrate trimmer so output stays in 0-3.3V range.
+USB1,1,USB-to-Serial adapter,3.3V TTL UART adapter for ESP32 flashing,,External tool,CP2102 or CH340 or FT232,Only needed during firmware upload. Connect to J3. DO NOT power J3.+3V3 pin from adapter - board self-powers from mains via PS1.
